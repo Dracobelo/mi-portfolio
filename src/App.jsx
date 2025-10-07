@@ -1,51 +1,47 @@
 import { motion } from "framer-motion";
 import profilePic from "./assets/profile.jpeg";
-import project1 from "./assets/project-1.svg";
-import project2 from "./assets/project-2.svg";
+import logo from "./assets/logo.svg";
 
 const profile = {
   nombre: "Alonso Castro",
   foto: profilePic,
   titulo: "Desarrollador / Profesional Innovador",
-  linkedin: "https://www.linkedin.com/in/tu-perfil",
-  email: "tuemail@ejemplo.com",
-  phone: "999 999 999"
+  linkedin: "https://www.linkedin.com/in/alonso-castro-guzman/",
+  email: "dracobelo23@gmail.com",
+  cv: "/cv.pdf", // coloca tu CV en public/cv.pdf para que este enlace funcione
+  objetivo: "Consolidar mi perfil como desarrollador especializado en soluciones de comercio electrónico inteligentes, mejorando la conversión y experiencia del usuario."
 };
 
 const competencias = [
-  "React, Node.js, TailwindCSS",
-  "Metodologías ágiles (Scrum, Kanban)",
-  "UI/UX y diseño responsive",
-  "Comunicación efectiva y liderazgo"
+  "Desarrollo web con React, Spring Boot y TailwindCSS",
+  "Integración de APIs REST y seguridad con OAuth2",
+  "Diseño UX/UI para tiendas digitales",
+  "Gestión de proyectos ágiles"
 ];
 
 const experiencias = [
   {
     titulo: "Pasantía Full Stack",
-    empresa: "Empresa XYZ",
+    empresa: "Sapiens Consulting",
     periodo: "2024",
     descripcion: "Desarrollo de funcionalidades front-end y backend para aplicación web interna."
   },
-  {
-    titulo: "Proyecto Integrador",
-    empresa: "Universidad ABC",
-    periodo: "2023",
-    descripcion: "Lideré el módulo de pagos móviles usando Node.js y React."
-  }
+
 ];
 
 const proyectos = [
   {
-    titulo: "Proyecto A",
-    descripcion: "App móvil multiplataforma para gestión de tareas.",
-    imagen: project1
+    titulo: "TaskFlow",
+    descripcion: "Aplicación móvil multiplataforma para la gestión de tareas y recordatorios con sincronización en la nube y modo oscuro.",
+    imagen: "src/assets/project1.png"
   },
   {
-    titulo: "Proyecto B",
-    descripcion: "Web app de e-commerce con carrito y pasarela de pago.",
-    imagen: project2
+    titulo: "ShopEase",
+    descripcion: "Plataforma web de e-commerce moderna con carrito de compras, pasarela de pago segura y panel de administración.",
+    imagen: "src/assets/project2.png"
   }
 ];
+
 
 const noticias = [
   {
@@ -65,10 +61,6 @@ const noticias = [
   }
 ];
 
-const contactos = [
-  { nombre: "Profesor/a X", cargo: "Tutor", contacto: "profesor@ejemplo.edu.pe" },
-  { nombre: "Compañero/a Y", cargo: "Colaborador", contacto: "compa@ejemplo.com" }
-];
 
 export default function App() {
   return (
@@ -80,8 +72,11 @@ export default function App() {
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "easeOut" }}
       >
-        <div className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
-          {profile.nombre}
+        <div className="flex items-center gap-3">
+          <img src={logo} alt="Logo" className="w-10 h-10" />
+          <div className="text-xl font-bold text-indigo-600 dark:text-indigo-400">
+            {profile.nombre}
+          </div>
         </div>
         <ul className="flex space-x-6 text-sm">
           {["Inicio", "Perfil", "Experiencia", "Proyectos", "Noticias", "Contactos"].map((sec) => (
@@ -106,10 +101,11 @@ export default function App() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <img src={logo} alt="Marca" className="w-12 h-12 mx-auto mb-4" />
           <img
             src={profile.foto}
             alt="Foto perfil"
-            className="w-36 h-36 mx-auto rounded-full border-4 border-white shadow-lg"
+            className="w-36 h-36 mx-auto rounded-full border-4 border-white shadow-lg object-cover"
           />
           <h2 className="text-4xl font-bold mt-6">{profile.titulo}</h2>
           <p className="mt-4 max-w-xl mx-auto leading-relaxed">
@@ -120,10 +116,21 @@ export default function App() {
             <a
               href={profile.linkedin}
               target="_blank"
+              rel="noopener noreferrer"
               className="px-5 py-3 bg-white text-indigo-600 font-semibold rounded-lg shadow hover:bg-indigo-50"
             >
               LinkedIn
             </a>
+
+            <a
+              href={profile.cv}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-5 py-3 bg-white text-indigo-600 font-semibold rounded-lg shadow hover:bg-indigo-50"
+            >
+              CV
+            </a>
+
             <a
               href="#contactos"
               className="px-5 py-3 border border-white text-white rounded-lg hover:bg-white/20"
@@ -147,6 +154,10 @@ export default function App() {
             para crear soluciones eficientes y atractivas. Mi meta es crecer en roles donde el impacto y la innovación
             sean el centro.
           </p>
+          <div className="mt-4">
+            <h3 className="text-xl font-medium text-indigo-500">Objetivo profesional</h3>
+            <p className="text-gray-700 dark:text-gray-300 mt-2">{profile.objetivo}</p>
+          </div>
           <div className="mt-6">
             <h3 className="text-xl font-medium text-indigo-500">Competencias</h3>
             <ul className="list-disc list-inside mt-2 text-gray-600 dark:text-gray-300">
